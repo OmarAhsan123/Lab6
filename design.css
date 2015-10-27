@@ -1,0 +1,44 @@
+#list1 {
+  height:50px; 
+  width:18%;
+  overflow:hidden; 
+  overflow-y:scroll;
+}
+
+#list2 {
+  height:50px; 
+  width:18%;
+  overflow:hidden; 
+  overflow-y:scroll;
+}
+
+.main {
+  position: absolute;
+	top:50px;
+	left:200px;
+	width:500px;
+	height:75px;
+	border: 3px solid #360;
+}
+
+.upper {
+ position: absolute;
+	top:200px;
+	left:-5px;
+	width:500px;
+	height:75px;
+	border: 3px solid #360;
+}
+
+.lower {
+  height:100px; width:50%;
+  position:relative;
+  float:left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.litem {
+  cursor: pointer;
+}

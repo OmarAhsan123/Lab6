@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Colors</title>
+
+<link href="design.css" rel="stylesheet" type="text/css">
+<script>
+	function requestColors() {
+		var colorData;
+
+		var oReq = new XMLHttpRequest();
+		oReq.onload = reqListener;
+		oReq.open("get", "ColorNameMap.json", true);
+		oReq.send();
+
+		function reqListener(e) {
+			colorData = JSON.parse(this.responseText);
+			
+			var i;
+
+			for (i = 0; i < colorData.length; i++)
+			{
+				var li = document.createElement("li");
+				
+				li.className = "litem";
+				li.id = "list1" + i;
+				var t = document.createTextNode(colorData[i].color);
+				li.appendChild(t);
+				
+				document.getElementById("list1").appendChild(li);
+			}
+
+			for (i = 0; i < colorData.length; i++)
+			{
+				var li = document.createElement("li");
+				li.className = "litem";
+				li.id = "list2" + i;
+				var t = document.createTextNode(colorData[i].value);
+				
+				li.appendChild(t);
+				li.style.backgroundColor = colorData[i].value;
+				document.getElementById("list2").appendChild(li);
+
+			}
+		}
+	}
+	
+	window.onload = requestColors;
+</script>
+</head>
+<body>
+<div class="main">
+	<div class="upper">
+		<ul id="list1">
+		</ul>
+	</div>
+
+	<div class="lower">
+		<ul id="list2">
+		</ul>
+</div>
+</div>
+</body>
+</html>
